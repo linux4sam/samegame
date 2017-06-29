@@ -1,0 +1,13 @@
+*.o
+Makefile
+.qmake.stash
+samegame
+*.pro.user
+moc_minehunt.cpp
+qrc_minehunt.cpp
+moc_predefs.h
+moc_qmlapplicationviewer.cpp
+.stamp_*
+.applied_patches_list
+.br_filelist_after
+.br_filelist_before
