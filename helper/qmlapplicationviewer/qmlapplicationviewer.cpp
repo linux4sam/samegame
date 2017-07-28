@@ -224,6 +224,12 @@ void QmlApplicationViewer::showExpanded()
 #endif
 }
 
+void QmlApplicationViewer::keyPressEvent( QKeyEvent *k )
+{
+    if(k->key() == 48)
+        qApp->exit();
+}
+
 QApplication *createApplication(int &argc, char **argv)
 {
 #ifdef HARMATTAN_BOOSTER

@@ -42,6 +42,7 @@
 #define QMLAPPLICATIONVIEWER_H
 
 #include <QtDeclarative/QDeclarativeView>
+#include <QKeyEvent>
 
 class QmlApplicationViewer : public QDeclarativeView
 {
@@ -66,6 +67,9 @@ public:
     void setOrientation(ScreenOrientation orientation);
 
     void showExpanded();
+
+protected:
+    void keyPressEvent( QKeyEvent *k );
 
 private:
     explicit QmlApplicationViewer(QDeclarativeView *view, QWidget *parent);
