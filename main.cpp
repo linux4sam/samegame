@@ -44,13 +44,47 @@
 #else
 #include <QtGui/QApplication>
 #endif
+#include <QtDeclarative/QDeclarativeContext>
+#include <QtDeclarative/QDeclarativeEngine>
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
+    bool isSmallResolution = false;
+    QString current;
+    QString currentName;
+    QString currentVal;
+    int idxOf=0;
+
+    /* Parse command line arguments */
+    for(int i=0; i<argc; i++)
+    {
+        current = argv[i];
+        idxOf = current.indexOf("=");
+        if(idxOf == -1)
+        {
+            currentName = current;
+            currentVal = QString();
+        }else{
+            currentName = current.left(idxOf);
+            currentVal = current.mid(idxOf+1);
+        }
+
+        if(currentName.count())
+        {
+
+            if(currentName.contains(QString("smallresolution")))
+            {
+                // use small resolution
+                isSmallResolution = true;
+            }
+        }
+    }
+
     QApplication app(argc, argv);
 
     QmlApplicationViewer viewer;
     viewer.setOrientation(QmlApplicationViewer::ScreenOrientationAuto);
+    viewer.engine()->rootContext()->setContextProperty("smallResolution", isSmallResolution);
     viewer.setMainQmlFile(QLatin1String("qml/samegame/samegame.qml"));
     viewer.showFullScreen();
     qApp->setOverrideCursor( QCursor( Qt::BlankCursor ) );
