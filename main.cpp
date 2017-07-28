@@ -46,6 +46,7 @@
 #endif
 #include <QtDeclarative/QDeclarativeContext>
 #include <QtDeclarative/QDeclarativeEngine>
+#include <QDesktopWidget>
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
@@ -86,6 +87,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     viewer.setOrientation(QmlApplicationViewer::ScreenOrientationAuto);
     viewer.engine()->rootContext()->setContextProperty("smallResolution", isSmallResolution);
     viewer.setMainQmlFile(QLatin1String("qml/samegame/samegame.qml"));
+    viewer.setFixedSize(app.desktop()->size());
     viewer.showFullScreen();
     qApp->setOverrideCursor( QCursor( Qt::BlankCursor ) );
 
