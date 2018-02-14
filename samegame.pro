@@ -4,7 +4,7 @@ folder_01.target = qml
 resources.source = resources
 DEPLOYMENTFOLDERS = folder_01 resources
 
-configfiles.files = configs/4-samegame.xml
+configfiles.files = configs/04-samegame.xml
 configfiles.path = /opt/ApplicationLauncher/applications/xml
 configresources.files = configs/same-game.png
 configresources.path = /opt/ApplicationLauncher/applications/resources
